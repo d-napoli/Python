@@ -41,7 +41,7 @@ def romanNumbers(numberString):
             else: # if we dont have more letters to come
                 totalSum += letterMeanings[ cur ]['value'] # add to the total the value of the last letter
                 i += 1 # increase to one the i value so we can get out of the loop
-        return json.dumps({'total': totalSum}) # return the total as json object
+        return json.dumps({'total': totalSum, 'informed': numberString}) # return the total as json object
     else: # the string doesnt match the regex pattern
         return json.dumps({'error': "Informed string {} its not valid".format(numberString)}) # return json error informing that its not valid
 
@@ -52,5 +52,5 @@ def romanNumbers(numberString):
 # numbers = "XIV" # 14
 # numbers = "MCMLXIV" # 1964
 # numbers = "MMCMXXXIX" # 2939
-numbers = "XL    " # 40
+numbers = "XXXI" # 40
 print(romanNumbers(numbers)) # get the return of the function
