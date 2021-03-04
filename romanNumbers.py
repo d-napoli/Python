@@ -3,7 +3,7 @@ import re
 
 def romanNumbers(numberString):
     numberString = numberString.upper().replace(" ", "") # normalize the string to be all uppercase and without blank spaces
-    p = "^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$" # regex pattern to match the string
+    p = "^M{0,20}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$" # regex pattern to match the string
 
     # the before of, means that if the letter comes before another one, it needs to be subtracted
     letterMeanings = { # object containing letters and values
@@ -46,11 +46,5 @@ def romanNumbers(numberString):
         return json.dumps({'error': "Informed string {} its not valid".format(numberString)}) # return json error informing that its not valid
 
 # Examples
-# numbers = "IVXLCDM" # Invalid
-# numbers = "X" # 10
-# numbers = "XVII" # 17
-# numbers = "XIV" # 14
-# numbers = "MCMLXIV" # 1964
-# numbers = "MMCMXXXIX" # 2939
-numbers = "XXXI" # 40
+numbers = "MCMLXXXVII" # 40
 print(romanNumbers(numbers)) # get the return of the function
